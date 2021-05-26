@@ -16,6 +16,8 @@ let but_eat = document.getElementById("b5");
 let but_show = document.getElementById("b6");
 let but_work = document.getElementById("b7");
 let but_kill = document.getElementById("k");
+let but_easter = document.getElementById("b8");
+let but_stop = document.getElementById("b9");
 
 //Variable globale pour l'actionbox
 let actionbox = document.getElementById("actionbox");
@@ -26,6 +28,9 @@ let colorbox = document.getElementById('monster');
 
 //Variable qui contient le setinterval de la fonction hasard
 let vartime;
+
+//Tableau de couleurs pour la fonction easter
+let colors = ["red", "green", "blue", "yellow", "orange"];
 
 //Fonction qui initialise les variables globales du monstre à partir des valeurs en paramètre
 function init(n, l, m) {
@@ -52,6 +57,8 @@ function go() {
     but_newlife.addEventListener('click', newlife);
     but_kill.addEventListener('click', kill);
     vartime = setInterval(hasard, timer);
+    but_easter.addEventListener('click',easter);
+    but_stop.addEventListener('click', stopp);
 }
 
 //Fonction qui permet d'afficher n'importe quel message en paramètre dans l'actionbox
@@ -84,7 +91,7 @@ function displayStatus(life, money, awake) {
     if (life < 5) {
         colorbox.style.backgroundColor = 'red';
     }else if (life < 10) {
-        colorbox.style.backgroundColor = 'orange';
+        colorbox.style.backgroundColor = 'palegreen';
     }else if (life < 15) {
         colorbox.style.backgroundColor = 'yellow';
     }else if (life < 20) {
@@ -93,15 +100,15 @@ function displayStatus(life, money, awake) {
         colorbox.style.backgroundColor = 'green';
     }
     if (money < 5) {
-        colorbox.style.border = '0px solid black';
+        colorbox.style.border = '0px solid white';
     }else if (money < 10) {
-        colorbox.style.border = '5px solid black';
+        colorbox.style.border = '5px solid white';
     }else if (money < 15) {
-        colorbox.style.border = '10px solid black';
+        colorbox.style.border = '10px solid white';
     }else if (money < 20) {
-        colorbox.style.border = '15px solid black';
+        colorbox.style.border = '15px solid white';
     }else if (money >= 20) {
-        colorbox.style.border = '20px solid black';
+        colorbox.style.border = '20px solid white';
     }
     if (life <= 0) {
         clearInterval(vartime);
@@ -229,6 +236,30 @@ function newlife() {
     }
     vartime = setInterval(hasard, timer);
     displayStatus(life,money,awake);
+}
+
+function wait(ms){
+    var start = new Date().getTime();
+    var end = start;
+    while(end < start + ms) {
+      end = new Date().getTime();
+   }
+}
+
+function easter() {
+    /*clearInterval(vartime);
+    colorbox.style.backgroundColor = colors[Math.floor(Math.random()*5)];
+    wait(500);
+    colorbox.style.backgroundColor = colors[Math.floor(Math.random()*5)];
+    wait(500);
+    colorbox.style.backgroundColor = colors[Math.floor(Math.random()*5)];
+    wait(500);
+    colorbox.style.backgroundColor = colors[Math.floor(Math.random()*5)];
+    wait(500);*/
+}
+
+function stopp() {
+    clearInterval(vartime);
 }
 
 //Ligne qui permet de lancer le jeu au lancement de la page
