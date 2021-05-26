@@ -1,9 +1,3 @@
-/*
- * Grégoire Alexis S2D
- * Grégoire Alexis S2D
- * Grégoire Alexis S2D
- */
-
 .monster {
     display: inline-block;
     vertical-align: top;
@@ -44,7 +38,7 @@ ul#status li {
 button {
     width: 75px;
     height: 40px;
-    background-color: deepskyblue;
+    background-color: rgb(199, 0, 0);
     border: 0;
     margin-right: 8px;
 }

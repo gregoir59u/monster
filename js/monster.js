@@ -1,9 +1,3 @@
-/*
- * Grégoire Alexis S2D
- * Grégoire Alexis S2D
- * Grégoire Alexis S2D
- */
-
 //Constante pour la fonction hasard
 const timer = 12000;
 
